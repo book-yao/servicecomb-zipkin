@@ -1,0 +1,35 @@
+spring:
+  sleuth:
+    enabled: true
+    trace-id128: true
+    sampler:
+      probability: 1.0
+    baggage-keys:
+      - baz
+      - bizarrecase
+    propagation-keys:
+      - foo
+      - upper_case
+  application:
+    name: teseService
+
+  zipkin:
+    service:
+      name: myService
+#  zipkin:
+#    base-url: http://localhost:9411
+#servicecomb:
+#  handler:
+#    chain:
+#      Consumer:
+#        default: tracing-consumer
+#      Provider:
+#        default: tracing-provider
+#  tracing:
+#    collector:
+#      address: http://localhost:9411
+logging:
+  level:
+    org.springframework.web: debug
+server:
+  port: 8080
